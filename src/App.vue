@@ -1,28 +1,25 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container">
+    <app-header></app-header>
+    <div class="row">
+      <div class="col-md-12">
+        <router-view></router-view>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import appHeader from "./components/Header.vue";
 export default {
-  name: 'App',
+  created() {
+    this.$store.dispatch("initStore");
+  },
   components: {
-    HelloWorld
-  }
-}
+    appHeader,
+  },
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped></style>
